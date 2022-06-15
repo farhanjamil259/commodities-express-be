@@ -6,6 +6,7 @@ import AppError from "./utils/appError";
 
 const app = express();
 
+//this is a test commit
 middlewareConfig(app);
 
 app.get("/", (_req, res) => {

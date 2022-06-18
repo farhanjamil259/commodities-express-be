@@ -13,6 +13,7 @@ export const register = catchAsync(async (req, res, next) => {
     name: req.body.name,
     email: req.body.email,
     image: req.body.image,
+    role: req.body.role,
     password: req.body.password,
     passwordChangedAt: "2020-04-04",
   });

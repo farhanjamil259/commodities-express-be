@@ -6,13 +6,13 @@ import cors from "cors";
 import createRequestTime from "./createRequestTime";
 
 export default (app) => {
-  //Third Party Middlewares
+  //Third Party Middle wares
   app.use(morgan("dev"));
   app.use(compression());
   app.use(helmet());
   app.use(express.json());
   app.use(cors());
 
-  //Custom Middlewares
+  //Custom Middle wares
   app.use(createRequestTime);
 };

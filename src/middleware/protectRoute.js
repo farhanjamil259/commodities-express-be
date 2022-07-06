@@ -28,7 +28,7 @@ const protectRoute = catchAsync(async (req, _res, next) => {
     token = authorization.split(" ")[1];
   }
 
-  // Return if no token eists
+  // Return if no token exists
   if (!token) {
     return next(
       new AppError("You are not logged in to perform this request", 401)
@@ -39,10 +39,9 @@ const protectRoute = catchAsync(async (req, _res, next) => {
   const decoded = await asyncJwtVerify(token, JWT_SECRET);
 
   // Check if the user was deleted after token was generated
-  const latestUser =
-    (await User.findById) <
-    UserDocument >
-    decoded[0].id.select("+password").select("+passwordChangedAt");
+  const latestUser = await User.findById(decoded[0].id)
+    .select("+password")
+    .select("+passwordChangedAt");
 
   if (!latestUser)
     return next(new AppError("This tokens user no longer exists", 401));

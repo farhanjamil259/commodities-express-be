@@ -6,7 +6,7 @@ const restrictRoute = (roles) => {
 
     if (!roles?.includes(req.user.role)) {
       return next(
-        new AppError("You do not have permissions to perform this reqeust", 403)
+        new AppError("You do not have permissions to perform this request", 403)
       );
     }
 

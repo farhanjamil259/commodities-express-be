@@ -9,17 +9,13 @@ import {
 
 // Middle wares
 import protectRoute from "../../middleware/protectRoute";
-import restrictRoute from "../../middleware/restrictRoute";
 
 const router = express.Router();
 
-router.post("/", [protectRoute, restrictRoute(["admin"])], createConverter);
+router.post("/", [protectRoute], createConverter);
 router.get("/", protectRoute, getConverters);
-router.delete(
-  "/:id",
-  [protectRoute, restrictRoute(["admin"])],
-  deleteConverter
-);
-router.patch("/:id", [protectRoute, restrictRoute(["admin"])], updateConverter);
+router.delete("/:id", [protectRoute], deleteConverter);
+router.patch("/:id", [protectRoute], updateConverter);
 router.get("/find", findConverter);
+
 export default router;

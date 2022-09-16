@@ -9,6 +9,7 @@ export const createConverter = catchAsync(async (req, res) => {
     data: { converter },
   });
 });
+
 export const findConverter = catchAsync(async (req, res, next) => {
   const paramId = req.query.id;
   const paramName = req.query.name;
@@ -35,6 +36,7 @@ export const findConverter = catchAsync(async (req, res, next) => {
     data: { converter },
   });
 });
+
 export const getConverters = catchAsync(async (req, res) => {
   const converters = await Converter.find();
   res.status(200).json({ status: "success", data: { converters } });

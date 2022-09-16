@@ -10,23 +10,17 @@ const converterSchema = new Schema({
     required: [true, "A converter must have a part number"],
     unique: true,
   },
-  description: {
-    type: String,
-    required: [true, "A converter must have a description"],
-  },
-  image: {
+  images: {
     type: [String],
-    required: [true, "A converter must have image(s)"],
   },
   price: {
-    type: String,
+    type: Number,
     required: [true, "A converter must have a price"],
   },
   alternateIds: {
     type: [String],
-    required: [true, "A converter must have alternate identifier"],
   },
-  cId: {
+  categoryId: {
     type: String,
   },
   commodities: {

@@ -3,6 +3,7 @@ import AppError from "../../utils/appError";
 import catchAsync from "../../utils/catchAsync";
 
 export const createCategory = catchAsync(async (req, res) => {
+  console.log(req.body);
   const category = await Category.create(req.body);
   res.status(200).json({
     status: "success",

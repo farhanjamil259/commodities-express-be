@@ -13,9 +13,10 @@ import restrictRoute from "../../middleware/restrictRoute";
 
 const router = express.Router();
 
-router.post("/", [protectRoute, restrictRoute(["admin"])], createCategory);
+router.post("/", [protectRoute], createCategory);
 router.get("/", protectRoute, getCategories);
 router.delete("/:id", protectRoute, deleteCategory);
 router.patch("/:id", protectRoute, updateCategory);
 router.get("/find", protectRoute, findCategory);
+
 export default router;

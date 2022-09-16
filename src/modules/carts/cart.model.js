@@ -1,9 +1,25 @@
 import { Schema, model } from "mongoose";
 
 const cartSchema = new Schema({
-  converterIds: {
-    type: [String],
-    required: [true, "A cart must have converter id's"],
+  converters: [
+    {
+      converter: {
+        type: String,
+        required: true,
+      },
+      quantity: {
+        type: Number,
+        required: true,
+      },
+      weight: {
+        type: Number,
+        required: true,
+      },
+    },
+  ],
+  markup: {
+    type: Number,
+    default: 0,
   },
 });
 
